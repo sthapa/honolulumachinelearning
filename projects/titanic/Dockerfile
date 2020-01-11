@@ -18,8 +18,9 @@ RUN pip install --no-cache-dir jupyter_contrib_nbextensions
 RUN pip install --no-cache-dir numpy pandas scikit-learn
 
 RUN cd /tf && git clone https://github.com/sthapa/honolulumachinelearning 
-RUN mv honolulumachinelearning/projects/titanic . && rm -fr honolulumachinelearning
+RUN find . -print
+RUN mv honolulumachinelearning/projects/titanic/* . && rm -fr honolulumachinelearning
 
 
-#RUN jupyter contrib nbextension install --user && \
-#    jupyter nbextensions_configurator enable --user
+RUN jupyter contrib nbextension install --user && \
+    jupyter nbextensions_configurator enable --user
